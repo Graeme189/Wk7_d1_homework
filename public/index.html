@@ -7,18 +7,19 @@
     <script src="./js/bundle.js"></script>
   </head>
   <body>
+    <h1>To Do List</h1>
     <div id="app">
-      <form @submit="saveNewItem">
-    <input type="text" v-model="newItem"/>
+      <form @submit="saveNewTask">
+    <input type="text" v-model="newTask"/>
     <input type="submit"/>
   </form>
   <ul>
-    <li v-for="(item, index) in items" :class="item.purchased ? 'purchased' : 'not-purchased'">
-      <span>{{ item.name }}</span>
-      <span v-if="item.purchased">Purchased!</span>
-      <button v-if="!item.purchased" @click="buyItem(index)">Purchase</button>
+    <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : 'not-completed'">
+      <span>{{ task.name }}</span>
+      <span v-if="task.completed">Completed!</span>
+      <button v-if="!task.completed" @click="completeTask(index)">Complete</button>
     </li>
-  </ul>
+    </ul>
     </div>
   </body>
 </html>
