@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <form @submit="saveNewItem">
+    <input type="text" v-model="newItem"/>
+    <input type="submit"/>
+  </form>
+  <ul>
+    <li v-for="(item, index) in items" :class="item.purchased ? 'purchased' : 'not-purchased'">
+      <span>{{ item.name }}</span>
+      <span v-if="item.purchased">Purchased!</span>
+      <button v-if="!item.purchased" @click="buyItem(index)">Purchase</button>
+    </li>
+  </ul>
+    </div>
+  </body>
+</html>
