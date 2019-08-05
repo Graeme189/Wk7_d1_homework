@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         this.tasks.push({
           name: this.newTask,
-          completed: false
+          completed: false,
         });
         this.newTask = '';
       },
